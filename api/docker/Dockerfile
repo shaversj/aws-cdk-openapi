@@ -4,7 +4,6 @@ RUN apk update \
     && apk upgrade --no-cache \
     && apk add --no-cache --update nodejs npm \
     && apk add git \
-    && apk add libc6-compat \
     && apk add --no-cache build-base
 
 # Install node packages and gems
@@ -16,4 +15,4 @@ WORKDIR /openapi
 
 RUN git clone https://github.com/slatedocs/slate
 RUN cd slate \
-    && bundle update --bundler && bundle install
+    && bundle install

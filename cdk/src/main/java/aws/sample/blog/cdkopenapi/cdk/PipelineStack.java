@@ -112,7 +112,7 @@ public class PipelineStack extends Stack {
 						"export REPOSITORY_ENDPOINT=$(aws codeartifact get-repository-endpoint --domain $REPOSITORY_DOMAIN --repository $REPOSITORY_NAME --format maven | jq .repositoryEndpoint | sed 's/\\\"//g')",
 						"echo $REPOSITORY_ENDPOINT",
 						"cd api",
-						"wget -q https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.4.0/openapi-generator-cli-5.4.0.jar -O openapi-generator-cli.jar",
+						"wget -q https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.6.0/openapi-generator-cli-6.6.0.jar -O openapi-generator-cli.jar",
 						"cp ./maven-settings.xml /root/.m2/settings.xml",
 						"java -jar openapi-generator-cli.jar batch openapi-generator-config.yaml",
 						"cd client",

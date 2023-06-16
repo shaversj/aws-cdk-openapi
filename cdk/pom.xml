@@ -10,7 +10,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cdk.version>2.84.0</cdk.version>
-        <constructs.version>[10.0.0,11.0.0)</constructs.version>
+        <constructs.version>10.2.52</constructs.version>
         <junit.version>5.7.1</junit.version>
     </properties>
 
@@ -19,7 +19,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.11.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -29,7 +29,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0</version>
                 <configuration>
                     <mainClass>aws.sample.blog.cdkopenapi.cdk.CdkApp</mainClass>
                 </configuration>

@@ -105,20 +105,7 @@ public class PipelineStack extends Stack {
 
 		CodeBuildStep codeArtifactStep = CodeBuildStep.Builder.create("CodeArtifactDeploy")
 				.input(pipelineSource)
-				.commands(Arrays.asList(
-						"echo $REPOSITORY_DOMAIN",
-						"echo $REPOSITORY_NAME",
-						"export CODEARTIFACT_TOKEN=`aws codeartifact get-authorization-token --domain $REPOSITORY_DOMAIN --query authorizationToken --output text`",
-						"export REPOSITORY_ENDPOINT=$(aws codeartifact get-repository-endpoint --domain $REPOSITORY_DOMAIN --repository $REPOSITORY_NAME --format maven | jq .repositoryEndpoint | sed 's/\\\"//g')",
-						"echo $REPOSITORY_ENDPOINT",
-						"cd api",
-						"wget -q https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.6.0/openapi-generator-cli-6.6.0.jar -O openapi-generator-cli.jar",
-						"cp ./maven-settings.xml /root/.m2/settings.xml",
-						"java -jar openapi-generator-cli.jar batch openapi-generator-config.yaml",
-						"cd client",
-						"mvn -version",
-						// mvn --no-transfer-progress for mvn >= 3.6.1
-						"mvn --no-transfer-progress deploy -DaltDeploymentRepository=openapi--prod::default::$REPOSITORY_ENDPOINT"))
+				.commands(Arrays.asList())
 				.rolePolicyStatements(Arrays.asList(codeArtifactStatement, codeArtifactStsStatement))
 				.env(new HashMap<String, String>() {
 					{
